@@ -1,0 +1,14 @@
+*{
+    margin: 0;padding: 0;
+}
+/* for dark mode button  */
+/* .heading{
+    display: inline-block;
+    justify-content: space-between;
+    margin: auto;
+    width: 100%;
+} */
+.add-todo,#items{
+    width: 70%;
+    margin: auto;
+}
