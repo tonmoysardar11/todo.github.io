@@ -1,4 +1,3 @@
-
 // for dark mode button
 // t=document.getElementsByClassName('table');
 // Dark.addEventListner('click',function() {
@@ -27,6 +26,7 @@ function getAndUpdate(){
     localStorage.setItem('itemJSON', JSON.stringify(itemJsonarr))
   }
   Update();
+  document.getElementById("myForm").reset();
 }
 function Update(){
   if (localStorage.getItem("itemJSON") == null) {
@@ -55,6 +55,7 @@ function Update(){
 let a = document.getElementById("add");
 a.addEventListener("click",getAndUpdate);
 Update();
+document.getElementById("myForm").reset();
 
 // done
 function done(itemIndex){
@@ -64,8 +65,18 @@ function done(itemIndex){
   itemJsonarr.splice(itemIndex, 1);
   localStorage.setItem('itemJSON', JSON.stringify(itemJsonarr))
   Update();
+  document.getElementById("myForm").reset();
 };
-
+function imp(index){
+  itemJsonStr = localStorage.getItem('itemJSON')
+  itemJsonarr = JSON.parse(itemJsonStr);
+  console.log("imp",index,itemJsonarr[index][0])
+  itemJsonarr[index][0]=itemJsonarr[index][0]+"**";
+  localStorage.setItem('itemJSON', JSON.stringify(itemJsonarr))
+  document.getElementsByClassName('btn-danger').disabled=true;
+  Update();
+  document.getElementById("myForm").reset();
+}
 function clr(){
   if(confirm("Do you wany to clear list?")){
     console.log('clear')
